@@ -1,7 +1,8 @@
 <template>
-	<div class="wrapper">		
-		<swiper :options="swiperOption">
-	    <swiper-slide v-for="item of swiperList" :key="item.id">
+	<div class="wrapper">
+		<!-- v-if 的作用是解决轮播默认显示的最后一张,因为在没有获取到数据之前，渲染是一个空数组。判断如果是空数组就不进行渲染 -->
+		<swiper :options="swiperOption" v-if="showSwiper">
+	    <swiper-slide v-for="item of list" :key="item.id">
 	    	<img class="swiper-image" :src="item.imgUrl">
 	    </swiper-slide>
 	    <div class="swiper-pagination"  slot="pagination"></div>
@@ -12,19 +13,21 @@
 <script>
 	export default {
 		name: 'HomeSwiper',
+		props: {
+			list:Array
+		},
 		data(){
 			return {
 				swiperOption: {
 					pagination: '.swiper-pagination',
 					loop:true,
-				},
-				swiperList:[{
-					id:'001',
-					imgUrl:'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20201/8c458e9fe5b5f4575b1d7ec0489a9ff8.jpg_750x200_f0fbf511.jpg'
-				},{
-					id:'002',
-					imgUrl:'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201912/d6df0db510d7b9aaa3d9ce4cffafeca1.jpg_750x200_abb38f14.jpg'
-				}]
+					autoplay:3000
+				}
+			}
+		},
+		computed:{
+			showSwiper(){
+				return this.list.length
 			}
 		}
 	}

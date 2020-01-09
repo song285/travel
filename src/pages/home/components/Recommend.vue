@@ -2,7 +2,7 @@
 	<div>
 		<div class="recommend-title">猜你喜欢</div>
 		<ul>
-			<li :key='item.id' class="item border-bottom" v-for="item of recommendList">
+			<li :key='item.id' class="item border-bottom" v-for="item of list">
 				<img class="item-img" :src="item.imgUrl">
 				<div class="item-info">
 					<p class="item-title">{{item.title}}</p>
@@ -17,25 +17,8 @@
 <script>
 	export default {
 		name: 'HomeRecommend',
-		data (){
-			return {	
-				recommendList:[{
-					id:'001',
-					imgUrl:'https://imgs.qunarzz.com/sight/p0/1703/9d/9dd5987e5c7701f2a3.water.jpg_200x200_8b16531c.jpg',
-					title:'福州明谷行馆',
-					desc:'最好玩的地方'
-				},{
-					id:'002',
-					imgUrl:'https://imgs.qunarzz.com/sight/p0/1703/9d/9dd5987e5c7701f2a3.water.jpg_200x200_8b16531c.jpg',
-					title:'福州明谷行馆',
-					desc:'最好玩的地方'
-				},{
-					id:'003',
-					imgUrl:'https://imgs.qunarzz.com/sight/p0/1703/9d/9dd5987e5c7701f2a3.water.jpg_200x200_8b16531c.jpg',
-					title:'福州明谷行馆',
-					desc:'最好玩的地方'
-				}]
-			}
+		props:{
+			list:Array
 		}
 	}
 </script>
@@ -43,7 +26,7 @@
 <style lang="stylus" scoped>
 	@import '~styles/varibles.styl'
 	.recommend-title
-		margin-top:.2rem
+		// margin-top:.2rem
 		line-height: .8rem
 		background: #eee
 		text-indent:.2rem

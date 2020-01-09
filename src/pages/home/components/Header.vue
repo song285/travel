@@ -2,13 +2,16 @@
   <div class="header">
 		<div class="header-left"><div class="iconfont back-icon">&#xe696;</div></div>
 		<div class="header-input"><span class="iconfont search-icon">&#xe64d;</span>输入城市景点/游玩/主题</div>
-		<div class="header-right">城市<span class="iconfont arrow-icon">&#xe64a;</span></div>
+		<div class="header-right">{{this.city}}<span class="iconfont arrow-icon">&#xe64a;</span></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props:{
+  	city:String
+  }
 }
 </script>
 <!-- 要使用stylus使用lang标识，只想对当前组件有效使用scoped -->
