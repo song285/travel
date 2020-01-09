@@ -1,0 +1,77 @@
+<template>
+	<div>
+		<div class="recommend-title">猜你喜欢</div>
+		<ul>
+			<li :key='item.id' class="item border-bottom" v-for="item of recommendList">
+				<img class="item-img" :src="item.imgUrl">
+				<div class="item-info">
+					<p class="item-title">{{item.title}}</p>
+					<p class="item-desc">{{item.desc}}</p>
+					<button class="item-button">查看详情</button>
+				</div>
+			</li>
+		</ul>
+	</div>
+</template>
+
+<script>
+	export default {
+		name: 'HomeRecommend',
+		data (){
+			return {	
+				recommendList:[{
+					id:'001',
+					imgUrl:'https://imgs.qunarzz.com/sight/p0/1703/9d/9dd5987e5c7701f2a3.water.jpg_200x200_8b16531c.jpg',
+					title:'福州明谷行馆',
+					desc:'最好玩的地方'
+				},{
+					id:'002',
+					imgUrl:'https://imgs.qunarzz.com/sight/p0/1703/9d/9dd5987e5c7701f2a3.water.jpg_200x200_8b16531c.jpg',
+					title:'福州明谷行馆',
+					desc:'最好玩的地方'
+				},{
+					id:'003',
+					imgUrl:'https://imgs.qunarzz.com/sight/p0/1703/9d/9dd5987e5c7701f2a3.water.jpg_200x200_8b16531c.jpg',
+					title:'福州明谷行馆',
+					desc:'最好玩的地方'
+				}]
+			}
+		}
+	}
+</script>
+
+<style lang="stylus" scoped>
+	@import '~styles/varibles.styl'
+	.recommend-title
+		margin-top:.2rem
+		line-height: .8rem
+		background: #eee
+		text-indent:.2rem
+	.item
+		overflow:hidden
+		display:flex
+		height:1.9rem
+		.item-img
+			width:1.7rem
+			height:1.7rem
+			padding:.1rem
+		.item-info
+			flex:1
+			padding:.1rem
+			min-width:0
+			.item-title
+				line-height:.54rem
+				font-size:.32rem
+				ellipsis()
+			.item-desc
+				line-height:.4rem
+				color:#ccc
+				ellipsis()
+			.item-button
+				margin-top:.16rem
+				color:#fff
+				line-height:.44rem
+				background:#ff9300
+				padding:0 .1rem
+				border-radius:.06rem
+</style>
