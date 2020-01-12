@@ -3,16 +3,20 @@
 		<div class="header-left"><div class="iconfont back-icon">&#xe696;</div></div>
 		<div class="header-input"><span class="iconfont search-icon">&#xe64d;</span>输入城市景点/游玩/主题</div>
 		<router-link to="/city">
-			<div class="header-right">{{this.city}}<span class="iconfont arrow-icon">&#xe64a;</span></div>
+			<div class="header-right">{{this.city}}
+				<span class="iconfont arrow-icon">&#xe64a;</span>
+			</div>
 		</router-link>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
-  props:{
-  	city:String
+  // 将state/index中的city内容映射到mapSate之中
+  computed:{
+  	...mapState(['city'])
   }
 }
 </script>
@@ -43,7 +47,8 @@ export default {
 		.search-icon
 			padding-right: .1rem
 	.header-right
-		width: 1.24rem
+		min-width: 1.04rem
+		padding:0 .1rem
 		float:right
 		text-align: center
 		color:#fff
