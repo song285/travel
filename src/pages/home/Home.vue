@@ -15,6 +15,7 @@ import HomeIcons from './components/Icons'
 import HomeRecommend from './components/Recommend'
 import HomeWeekend from './components/Weekend'
 import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
   name: 'Home',
   components: { 
@@ -26,16 +27,20 @@ export default {
   },
   data (){
     return {
+      lastCity: '',
       swiperList:[],
       iconsList:[],
       recommendList:[],
       weenkendList:[]
     }
   },
+  computed:{
+    ...mapState(['city'])
+  },
   methods:{
     getHomeInfo (){
       // 虽然这里我们写的是api的开头的地址，但是vue已经帮我们跳转到了我们本地的json文件
-      axios.get('/api/index.json')
+      axios.get('/api/index.json?city=' + this.city)
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res){
@@ -50,7 +55,15 @@ export default {
     }
   },
   mounted (){
+    this.lastCity = this.city
     this.getHomeInfo()
+  },
+  // 当使用keep-alive的时，会多出该周期函数
+  activated () {
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getHomeInfo()
+    }
   }
 }
 </script>
