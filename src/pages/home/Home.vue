@@ -4,7 +4,7 @@
 	  <home-swiper :list="swiperList"></home-swiper>
     <home-icons :list="iconsList"></home-icons>
     <home-recommend :list="recommendList"></home-recommend>
-	  <home-weekend :list="weenkendList"></home-weekend>
+	  <home-weekend :list="weekendList"></home-weekend>
   </div>
 </template>
 
@@ -31,7 +31,7 @@ export default {
       swiperList:[],
       iconsList:[],
       recommendList:[],
-      weenkendList:[]
+      weekendList:[]
     }
   },
   computed:{
@@ -50,7 +50,7 @@ export default {
         this.swiperList = data.swiperList
         this.iconsList = data.iconsList
         this.recommendList = data.recommendList
-        this.weenkendList = data.weenkendList
+        this.weekendList = data.weekendList
       }
     }
   },

@@ -2,11 +2,11 @@
 	<div class="wrapper">
 		<!-- v-if 的作用是解决轮播默认显示的最后一张,因为在没有获取到数据之前，渲染是一个空数组。判断如果是空数组就不进行渲染 -->
 		<swiper :options="swiperOption" v-if="showSwiper">
-	    <swiper-slide v-for="item of list" :key="item.id">
-	    	<img class="swiper-image" :src="item.imgUrl">
-	    </swiper-slide>
-	    <div class="swiper-pagination"  slot="pagination"></div>
-	  </swiper>
+		    <swiper-slide v-for="item of list" :key="item.id">
+		    	<img class="swiper-image" :src="item.imgUrl">
+		    </swiper-slide>
+		    <div class="swiper-pagination"  slot="pagination"></div>
+		</swiper>
 	</div>
 </template>
 
