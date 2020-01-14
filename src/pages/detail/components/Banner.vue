@@ -7,13 +7,16 @@
 				<div class="banner-number"><span class="iconfont banner-icon">&#xe674;</span>6</div>
 			</div>
 		</div>
-		<!-- 这里接收画廊传递过来的close事件 -->
-		<common-gallary :imgs="gallaryImgs" v-show="showGallary" @close="handleBannerClose"></common-gallary>
+		<fade-animation>
+			<!-- 这里接收画廊传递过来的close事件 -->
+			<common-gallary :imgs="gallaryImgs" v-show="showGallary" @close="handleBannerClose"></common-gallary>
+		</fade-animation>
 	</div>
 </template>
 
 <script>
 import CommonGallary from 'common/gallary/Gallary'
+import FadeAnimation from 'common/fade/FadeAnimation'
 export default {
 	name: "DetailBanner",
 	props:{
@@ -37,7 +40,8 @@ export default {
 		}
 	},
 	components:{
-		CommonGallary
+		CommonGallary,
+		FadeAnimation
 	}
 }
 </script>
