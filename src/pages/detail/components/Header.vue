@@ -7,7 +7,7 @@
 			<router-link to="/">
 				<div class="iconfont header-fixed-back">&#xe696;</div>
 			</router-link>
-			景点详情
+			{{this.sightName}}
 		</div>
 	</div>
 </template>
@@ -16,6 +16,9 @@
 import CommonGallary from 'common/gallary/Gallary'
 export default {
 	name: "DetailHeader",
+	props:{
+		sightName:String
+	},
 	data () {
 		return {
 			showAbs:true,

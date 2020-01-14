@@ -1,14 +1,14 @@
 <template>
 	<div>
 		<div class="banner" @click="handleBannerClick">
-			<img class="banner-img" src="http://img1.qunarzz.com/sight/p0/1706/e5/e563e6454d1771c2a3.img.jpg_600x330_a9f0f96c.jpg">
+			<img class="banner-img" :src="bannerImg">
 			<div class="banner-info">
-				<div class="banner-title">厦门方特梦幻王国(AAAA景区)</div>
+				<div class="banner-title">{{this.sightName}}</div>
 				<div class="banner-number"><span class="iconfont banner-icon">&#xe674;</span>6</div>
 			</div>
 		</div>
 		<!-- 这里接收画廊传递过来的close事件 -->
-		<common-gallary :imgs="imgs" v-show="showGallary" @close="handleBannerClose"></common-gallary>
+		<common-gallary :imgs="gallaryImgs" v-show="showGallary" @close="handleBannerClose"></common-gallary>
 	</div>
 </template>
 
@@ -16,10 +16,14 @@
 import CommonGallary from 'common/gallary/Gallary'
 export default {
 	name: "DetailBanner",
+	props:{
+		sightName:String,
+		bannerImg:String,
+		gallaryImgs:Array
+	},
 	data () {
 		return {
-			showGallary:false,
-			imgs: ['http://img1.qunarzz.com/sight/p0/1706/e5/e563e6454d1771c2a3.img.jpg_r_800x800_d893f8b1.jpg','http://img1.qunarzz.com/sight/p0/1706/cd/cd8098eca9711c5ca3.img.jpg_r_800x800_2b815b7c.jpg']	
+			showGallary:false
 		}
 	},
 	methods:{
